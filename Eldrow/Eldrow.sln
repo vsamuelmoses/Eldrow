@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eldrow.Android", "Eldrow\El
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eldrow.iOS", "Eldrow\Eldrow.iOS\Eldrow.iOS.csproj", "{A5487494-03F8-4712-ADFC-4B3A553CF8EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eldrow", "Eldrow\Eldrow\Eldrow.csproj", "{3D2A26DF-47E0-47EF-AD32-BBA1AA7CE1EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eldrow", "Eldrow\Eldrow\Eldrow.csproj", "{3D2A26DF-47E0-47EF-AD32-BBA1AA7CE1EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49A32733-34A9-4B49-B9FD-683871780480}"
+	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines.yml = ..\azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

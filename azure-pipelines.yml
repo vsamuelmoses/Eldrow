@@ -1,19 +1,35 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- main
+# Xamarin.Android
+# Build a Xamarin.Android app and Xamarin.UITest assembly.
+# Add steps that test, sign, and distribute the app, save build artifacts, and more:
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/xamarin
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'windows-2019'
+
+variables:
+  buildConfiguration: 'Release'
+  outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: NuGetToolInstaller@1
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '**/*.sln'
+
+- task: XamarinAndroid@1
+  inputs:
+    projectFile: '**/*droid*.csproj'
+    outputDirectory: '$(outputDirectory)'
+    configuration: '$(buildConfiguration)'
+    msbuildVersionOption: '16.0'
+
+- task: AndroidSigning@3
+  inputs:
+    apksign: false
+    zipalign: false
+    apkFiles: '$(outputDirectory)/*.apk'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(outputDirectory)'
