@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eldrow.Views.AboutPage"
+             xmlns:controls="clr-namespace:Eldrow.Controls">
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <controls:Input HorizontalOptions="Fill"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Text="{Binding Guess}"
+                            CharacterSpacing="10"
+                            FontAttributes="None"
+                            MaxLength="4"
+                            FontSize="40"
+                            VerticalOptions="Fill" 
+                            Margin="10"/>
+            <Button Text="Go"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Command="{Binding GoCommand}" 
+                    Margin="10"/>
+
+            <ListView ItemsSource="{Binding Play.GuessedWords}"
+                      HorizontalOptions="Fill"
+                      Margin="10"
+                      SelectionMode="None"
+                      Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding GuessedWord.Text}"
+                                       Grid.Column="0"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="40"
+                                       CharacterSpacing="10" />
+                                
+                                <controls:Ball Grid.Column="1"
+                                               Text="{Binding Yellows}"
+                                               Color="Yellow" />
+                                <controls:Ball Grid.Column="2"
+                                               Text="{Binding Greens}"
+                                               Color="Green" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+</ContentPage>
