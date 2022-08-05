@@ -4,19 +4,13 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/xamarin
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-2022'
 
 variables:
   buildConfiguration: 'Release'
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
 steps:
-
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '11'
-    jdkArchitectureOption: 'x86'
-    jdkSourceOption: 'PreInstalled'
 
 - task: NuGetToolInstaller@1
 
