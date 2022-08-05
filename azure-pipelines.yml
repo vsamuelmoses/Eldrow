@@ -11,6 +11,13 @@ variables:
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
 steps:
+
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '11'
+    jdkArchitectureOption: 'x86'
+    jdkSourceOption: 'PreInstalled'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
