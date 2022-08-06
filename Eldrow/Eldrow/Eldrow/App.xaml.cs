@@ -12,8 +12,6 @@ namespace Eldrow
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

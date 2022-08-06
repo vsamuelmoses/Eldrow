@@ -1,4 +1,6 @@
 ﻿using Eldrow.Extensions;
+using Eldrow.Models;
+using Eldrow.Services;
 using Eldrow.ViewModels;
 using System.Collections.Generic;
 using System.Reflection;
@@ -7,13 +9,13 @@ using Xamarin.Forms;
 
 namespace Eldrow.Views
 {
-    public partial class AboutPage : ContentPage, IDialogs
+    public partial class GamePage : ContentPage, IDialogs
     {
-        public AboutPage()
+        public GamePage()
         {
             InitializeComponent();
 
-            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(AboutPage)).Assembly;
+            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(GamePage)).Assembly;
             var stream = assembly.GetManifestResourceStream(@"Eldrow.Words.Four.txt");
             var words = new List<string>();
             using (var reader = new System.IO.StreamReader(stream))
@@ -27,7 +29,7 @@ namespace Eldrow.Views
 
             Word.Create(hidden)
                 .IfSucc(word => {
-                    BindingContext = new AboutViewModel(this, word);
+                    BindingContext = new GameViewModel(this, word);
                         });
 
         }
