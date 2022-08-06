@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eldrow.Views.GamePage"
-             xmlns:controls="clr-namespace:Eldrow.Controls">
+             xmlns:controls="clr-namespace:Eldrow.Controls"
+             Shell.NavBarIsVisible="False">
 
         <Grid Margin="10">
             <Grid.RowDefinitions>
@@ -19,8 +20,8 @@
                             Text="{Binding Guess}"
                             CharacterSpacing="10"
                             FontAttributes="None"
+                            FontSize="30"
                             MaxLength="4"
-                            FontSize="40"
                             VerticalOptions="Fill" 
                             Margin="10"/>
             <Button Text="Go"
@@ -48,7 +49,6 @@
                                 <Label Text="{Binding GuessedWord.Text}"
                                        Grid.Column="0"
                                        VerticalTextAlignment="Center"
-                                       FontSize="40"
                                        CharacterSpacing="10" />
                                 
                                 <controls:Ball Grid.Column="1"
