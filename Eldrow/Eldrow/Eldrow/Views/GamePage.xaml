@@ -7,33 +7,40 @@
 
         <Grid Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <controls:Input HorizontalOptions="Fill"
+        <Label Text="Guess the 4 letter word" 
+               Grid.Row="0"
+               Grid.ColumnSpan="2"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
+
+        <controls:Input HorizontalOptions="Fill"
                             Grid.Column="0"
-                            Grid.Row="0"
+                            Grid.Row="1"
                             Text="{Binding Guess}"
                             CharacterSpacing="10"
                             FontAttributes="None"
                             FontSize="30"
                             MaxLength="4"
                             VerticalOptions="Fill" 
-                            Margin="10"/>
+                            Margin="25"/>
             <Button Text="Go"
                     Grid.Column="1"
-                    Grid.Row="0"
+                    Grid.Row="1"
                     Command="{Binding GoCommand}" 
-                    Margin="10"/>
+                    Margin="30"/>
 
             <CollectionView ItemsSource="{Binding Play.GuessedWords}"
                       HorizontalOptions="Fill"
                       Margin="10"
-                      Grid.Row="1"
+                      Grid.Row="2"
                       Grid.Column="0"
                       Grid.ColumnSpan="2">
             <CollectionView.ItemTemplate>
@@ -63,18 +70,18 @@
                             </BindableLayout.ItemTemplate>
                             
                         </FlexLayout>
-                                
-                                <controls:Ball Grid.Column="1"
-                                               Text="{Binding Yellows}"
-                                               Color="Yellow" 
-                                               Margin="3"
-                                               VerticalOptions="Center"/>
-                                <controls:Ball Grid.Column="2"
-                                               Text="{Binding Greens}"
-                                               Color="Green" 
-                                               Margin="3"
-                                               VerticalOptions="Center"/>
-                            </Grid>
+
+                        <controls:Ball Grid.Column="1"
+                                       Text="{Binding Yellows}"
+                                       Color="#D66627"
+                                       Margin="3"
+                                       VerticalOptions="Center" />
+                        <controls:Ball Grid.Column="2"
+                                       Text="{Binding Greens}"
+                                       Color="#ACA33A"
+                                       Margin="3"
+                                       VerticalOptions="Center" />
+                    </Grid>
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>

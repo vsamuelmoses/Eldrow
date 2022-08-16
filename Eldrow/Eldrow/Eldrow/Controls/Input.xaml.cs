@@ -15,7 +15,7 @@ namespace Eldrow.Controls
 
         private void Input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Text.ToUpper() != Text)
+            if (Text?.ToUpper() != Text)
                 Text = Text.ToUpper();
         }
     }

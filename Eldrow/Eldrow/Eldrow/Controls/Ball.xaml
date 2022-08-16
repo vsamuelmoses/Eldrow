@@ -16,7 +16,8 @@
                        VerticalOptions="Center"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center" 
-                       TextColor="DarkRed"/>
+                       FontSize="20"
+                       TextColor="White"/>
             </Frame>
         </Grid>
     </ContentView.Content>
